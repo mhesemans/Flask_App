@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-
-
 <h2>{{ page_title }}</h2>
 <p>
     The formation of the group grew out of a meeting Gandalf had with Thorin in
@@ -18,35 +15,22 @@
     leave on other business, welcomed a fourteenth to fill into their party.
 </p>
 
-<div class="row featurette">
-    <div class="col-md-7">
-        <h3>{{ company[0]["name"] }}</h3>
-        <p>
-            {{ company[0]["description"] }}
-        </p>
-    </div>
-    <div class="col-md-5">
-        <img src=" {{ company[0]["image_source"] }}">
-    </div>
-</div>
+{% for member in company %}
 
-<div class="row featurette">
-    <div class="col-md-5">
-   <img src="https://static.wikia.nocookie.net/lotr/images/5/50/Fili_in_LEGO.jpg" alt="Fili with bow">
-   <br>
-   <img src="https://static.wikia.nocookie.net/lotr/images/6/67/LEGO_Kili_bow.jpg/" alt="Kili with bow">
-</div>
-<div class="col-md-7">
-    <h3>Fili and Kili</h3>
-    <p>Fíli was born into the royal line of Durin and raised under the stern guardianship of his uncle, Thorin
-        Oakenshield. Along with his brother Kíli, Fíli is one of the youngest Dwarves of The Company. He has never
-        travelled far, nor ever seen the fabled Dwarf City of Erebor. A skilled fighter, Fíli sets off on the adventure
-        ahead with little idea of the challenges and dangers that lie before him.
-<br><br>
-        Younger brother to Fíli, Kíli is a loyal nephew to Thorin Oakenshield. Carefree and somewhat reckless, Kíli has
-        led a charmed and untroubled life to this point. Handsome and physically able, Kíli possesses the invincible
-        courage of youth. He is a skilled fighter and expert archer, having been trained with weapons from an early age.
-        As one of the youngest of the Company of Dwarves, Kíli is determined to make his mark and prove his worth.</p>
-</div>
-</div>
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h3>{{ member.name }}</h3>
+            <p>
+                {{ member.description }}
+            </p>
+        </div>
+        <div class="col-md-5">
+            <img src=" {{ member.image_source }}" alt="" class="featurette-image image-responsive">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+{% endfor %}
+
 {% endblock %}
